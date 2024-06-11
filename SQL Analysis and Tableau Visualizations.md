@@ -59,12 +59,13 @@ else FALSE
 
 ### Percentage of Each Separation Type 
 ```sql
-SELECT SeparationType,
-round(round(COUNT(*), 2)/(SELECT COUNT(*) FROM SURVEYS)*100,2) AS percentageOfTotal
-FROM Surveys
-GROUP BY SeparationType
-ORDER BY percentageOfTotal DESC;
+SELECT SeparationType, count(*) AS num_of_responses FROM 
+Surveys
+group by SeparationType
+ORDER BY num_of_responses DESC;
 ```
+![](https://github.com/tanikasuresh/DETE-Employee-Exit-Survey-Analysis/blob/main/SQL%20Images/2.png)
+
 Here, we see that resignations did seem to be the leading reason for exiting the company between 2012 and 2014 closely followed by age retirement. It is definitely worth analyzing the trends corresponding to Resignations to understand the problem and prevent the company from losing talent.
 
 ### Number of Resignations that were Dissatisfied
@@ -75,7 +76,7 @@ where SeparationType = 'Resignation'
 group by dissatisfaction
 order by numOfResponses desc
 ```
-
+![](https://github.com/tanikasuresh/DETE-Employee-Exit-Survey-Analysis/blob/main/SQL%20Images/3.png)
 Among the respondents who resigned from the company between 2012 and 2014, it seems that slightly more resigned due to some sort of dissatisfaction with the company.
 
 ### Number of responses indicating dissatisfaction based on Age
@@ -85,7 +86,8 @@ WHERE AGE IS NOT NULL and SeparationType = 'Resignation'
 GROUP BY AGE, DISSATISFACTION
 ORDER BY AGE ASC, dissatisfaction desc
 ```
-
+![](https://github.com/tanikasuresh/DETE-Employee-Exit-Survey-Analysis/blob/main/SQL%20Images/5.png)
+![](https://github.com/tanikasuresh/DETE-Employee-Exit-Survey-Analysis/blob/main/SQL%20Images/4.png)
 In both cases, younger and older employees are resigning due to dissatisfaction with the company and there does not seem to be skewed towards a higher or lower age bracket
 
 ### Number of responses indicating dissatisfaction based on Position
@@ -95,6 +97,7 @@ where separationtype = 'Resignation'
 group by position
 order by num_of_responses desc
 ```
+![](https://github.com/tanikasuresh/DETE-Employee-Exit-Survey-Analysis/blob/main/SQL%20Images/6.png)
 
 Out of all the 311 resignations in DETE, teachers are responsible for over 40% of the resignations, which is far greater than other positions.
 
@@ -112,6 +115,8 @@ where gender is not null and SeparationType = 'Resignation'
 GROUP BY gender, DISSATISFACTION
 ORDER BY gender ASC, dissatisfaction desc
 ```
+![](https://github.com/tanikasuresh/DETE-Employee-Exit-Survey-Analysis/blob/main/SQL%20Images/7.png)
+![](https://github.com/tanikasuresh/DETE-Employee-Exit-Survey-Analysis/blob/main/SQL%20Images/8.png)
 
 Furthermore, approximately more than 50% of females who have resigned felt some dissatisfaction with the company.
 
@@ -122,11 +127,10 @@ where SeparationType = 'Resignation' and years is not null
 group by years
 order by num_of_responses desc
 ```
+
+![](https://github.com/tanikasuresh/DETE-Employee-Exit-Survey-Analysis/blob/main/SQL%20Images/9.png)
+
 It seems that the most number of resignations from 2012 to 2014 occured by people who had been working there for only 5 years.
 Interestingly enough, the top nine number of resignations all comprise of people who had been working there for less than ten years. 
 Conversally,the number of resignations for people that have worked 10 or more years was only in the single digits, with an increase in the number of resignations as the years decrease.
 This may be due to company loyalty, people who have worked there less do not feel a sense of loyalty to stay at the company.
-
-
-
-
