@@ -77,6 +77,7 @@ group by dissatisfaction
 order by numOfResponses desc
 ```
 ![](https://github.com/tanikasuresh/DETE-Employee-Exit-Survey-Analysis/blob/main/SQL%20Images/3.png)
+
 Among the respondents who resigned from the company between 2012 and 2014, it seems that slightly more resigned due to some sort of dissatisfaction with the company.
 
 ### Number of responses indicating dissatisfaction based on Age
@@ -87,7 +88,8 @@ GROUP BY AGE, DISSATISFACTION
 ORDER BY AGE ASC, dissatisfaction desc
 ```
 ![](https://github.com/tanikasuresh/DETE-Employee-Exit-Survey-Analysis/blob/main/SQL%20Images/5.png)
-![](https://github.com/tanikasuresh/DETE-Employee-Exit-Survey-Analysis/blob/main/SQL%20Images/4.png)
+![](https://github.com/tanikasuresh/DETE-Employee-Exit-Survey-Analysis/blob/main/SQL%20Images/41.png)
+
 In both cases, younger and older employees are resigning due to dissatisfaction with the company and there does not seem to be skewed towards a higher or lower age bracket
 
 ### Number of responses indicating dissatisfaction based on Position
@@ -99,7 +101,14 @@ order by num_of_responses desc
 ```
 ![](https://github.com/tanikasuresh/DETE-Employee-Exit-Survey-Analysis/blob/main/SQL%20Images/6.png)
 
+<img src="https://github.com/tanikasuresh/DETE-Employee-Exit-Survey-Analysis/blob/main/Tableau%20Images/Position%20%25%20Pie%20Chart.png" width = "300" height = "300"> 
+<img src = "https://github.com/tanikasuresh/DETE-Employee-Exit-Survey-Analysis/blob/main/Tableau%20Images/color%20legend.png" width = "500" height "500">
+
 Out of all the 311 resignations in DETE, teachers are responsible for over 40% of the resignations, which is far greater than other positions.
+
+![](https://github.com/tanikasuresh/DETE-Employee-Exit-Survey-Analysis/blob/main/Tableau%20Images/Teacher%20Dissatisfaction.png)
+
+<img src="https://github.com/tanikasuresh/DETE-Employee-Exit-Survey-Analysis/blob/main/Tableau%20Images/%25%20of%20Total%20Position%20Dissatisfaction.png" width = "600" height = "600"> 
 
 ### Number of responses indicating dissatisfaction based on Gender
 ```sql
@@ -107,6 +116,8 @@ select SeparationType, gender, count(*) as num_of_responses from Surveys
 where SeparationType = 'Resignation'
 group by gender
 ```
+![](https://github.com/tanikasuresh/DETE-Employee-Exit-Survey-Analysis/blob/main/SQL%20Images/7.png)
+
 It is clear that the number of females have resigned is more than 3x the number of males who have resigned from 2012 to 2014.
 
 ```sql
@@ -115,7 +126,6 @@ where gender is not null and SeparationType = 'Resignation'
 GROUP BY gender, DISSATISFACTION
 ORDER BY gender ASC, dissatisfaction desc
 ```
-![](https://github.com/tanikasuresh/DETE-Employee-Exit-Survey-Analysis/blob/main/SQL%20Images/7.png)
 ![](https://github.com/tanikasuresh/DETE-Employee-Exit-Survey-Analysis/blob/main/SQL%20Images/8.png)
 
 Furthermore, approximately more than 50% of females who have resigned felt some dissatisfaction with the company.
@@ -134,3 +144,5 @@ It seems that the most number of resignations from 2012 to 2014 occured by peopl
 Interestingly enough, the top nine number of resignations all comprise of people who had been working there for less than ten years. 
 Conversally,the number of resignations for people that have worked 10 or more years was only in the single digits, with an increase in the number of resignations as the years decrease.
 This may be due to company loyalty, people who have worked there less do not feel a sense of loyalty to stay at the company.
+
+<img src="https://github.com/tanikasuresh/DETE-Employee-Exit-Survey-Analysis/blob/main/Tableau%20Images/%25%20of%20Total%20-%20Years%20of%20Service.png" width = "600" height = "600"> 
