@@ -89,7 +89,6 @@ ORDER BY AGE ASC, dissatisfaction desc
 ```
 ![](https://github.com/tanikasuresh/DETE-Employee-Exit-Survey-Analysis/blob/main/SQL%20Images/5.png)
 
-
 ![](https://github.com/tanikasuresh/DETE-Employee-Exit-Survey-Analysis/blob/main/SQL%20Images/41.png)
 
 In both cases, younger and older employees are resigning due to dissatisfaction with the company and there does not seem to be skewed towards a higher or lower age bracket
