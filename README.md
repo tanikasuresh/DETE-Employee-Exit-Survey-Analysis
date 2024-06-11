@@ -94,18 +94,9 @@ order by numOfResponses desc
 
 Among the respondents who resigned from the company between 2012 and 2014, it seems that slightly more did indeed resign due to some sort of dissatisfaction with the company.
 
-### Number of responses indicating dissatisfaction based on Age
-```sql
-SELECT AGE, DISSATISFACTION, COUNT(*) AS numOfResponses FROM surveys
-WHERE AGE IS NOT NULL and SeparationType = 'Resignation'
-GROUP BY AGE, DISSATISFACTION
-ORDER BY AGE ASC, dissatisfaction desc
-```
-![](https://github.com/tanikasuresh/DETE-Employee-Exit-Survey-Analysis/blob/main/SQL%20Images/5.png)
+![](https://github.com/tanikasuresh/DETE-Employee-Exit-Survey-Analysis/blob/main/Tableau%20Images/%25%20of%20Total%20-%20Resignations.png)
 
-![](https://github.com/tanikasuresh/DETE-Employee-Exit-Survey-Analysis/blob/main/SQL%20Images/41.png)
-
-In both cases, younger and older employees are resigning due to dissatisfaction with the company and there does not seem to be skewed towards a higher or lower age bracket
+Furthermore, among those that resigned due to some dissatisfaction, `Work Life Balance`, `Job Dissatisfaction`, `Lack of Recognition`, `Department Dissatisfaction`, and `Workload Dissatisfaction` were the top five main reasons for resigning indicating that former employees were not happy with certain aspects of their jobs. 
 
 ### Number of responses indicating dissatisfaction based on Position
 ```sql
@@ -119,31 +110,11 @@ order by num_of_responses desc
 <img src="https://github.com/tanikasuresh/DETE-Employee-Exit-Survey-Analysis/blob/main/Tableau%20Images/Position%20%25%20Pie%20Chart.png" width = "300" height = "300"> 
 <img src = "https://github.com/tanikasuresh/DETE-Employee-Exit-Survey-Analysis/blob/main/Tableau%20Images/color%20legend.png" width = "500" height "500">
 
-Out of all the 311 resignations in DETE, teachers are responsible for over 40% of the resignations, which is far greater than other positions.
+Out of all the 311 resignations in DETE, teachers and teacher aides are responsible for over 60% of the resignations, which is greater than the 11 other positions combined.
 
 ![](https://github.com/tanikasuresh/DETE-Employee-Exit-Survey-Analysis/blob/main/Tableau%20Images/Teacher%20Dissatisfaction.png)
 
-<img src="https://github.com/tanikasuresh/DETE-Employee-Exit-Survey-Analysis/blob/main/Tableau%20Images/%25%20of%20Total%20Position%20Dissatisfaction.png" width = "600" height = "600"> 
-
-### Number of responses indicating dissatisfaction based on Gender
-```sql
-select SeparationType, gender, count(*) as num_of_responses from Surveys
-where SeparationType = 'Resignation'
-group by gender
-```
-![](https://github.com/tanikasuresh/DETE-Employee-Exit-Survey-Analysis/blob/main/SQL%20Images/7.png)
-
-It is clear that the number of females have resigned is more than 3x the number of males who have resigned from 2012 to 2014.
-
-```sql
-SELECT gender, DISSATISFACTION, COUNT(*) AS numOfResponses FROM Surveys
-where gender is not null and SeparationType = 'Resignation'
-GROUP BY gender, DISSATISFACTION
-ORDER BY gender ASC, dissatisfaction desc
-```
-![](https://github.com/tanikasuresh/DETE-Employee-Exit-Survey-Analysis/blob/main/SQL%20Images/8.png)
-
-Furthermore, approximately more than 50% of females who have resigned felt some dissatisfaction with the company.
+Specifically, for teachers who resigned due to dissatisfaction, `Work Life Balance`, `Job Dissatisfaction`, `Workload Dissatisfaction`, `Lack of Recognition`, and `Department Dissatisfaction` had the top five largest percentages of dissatisfaction. In other words, teachers who resigned mainly had an issue with these five categories.
 
 ### Number of responses indicating dissatisfaction based on Years of Service
 ```sql
@@ -158,6 +129,15 @@ order by num_of_responses desc
 It seems that the most number of resignations from 2012 to 2014 occured by people who had been working there for only 5 years.
 Interestingly enough, the top nine number of resignations all comprise of people who had been working there for less than ten years. 
 Conversally,the number of resignations for people that have worked 10 or more years was only in the single digits, with an increase in the number of resignations as the years decrease.
-This may be due to company loyalty, people who have worked there less do not feel a sense of loyalty to stay at the company.
 
 <img src="https://github.com/tanikasuresh/DETE-Employee-Exit-Survey-Analysis/blob/main/Tableau%20Images/%25%20of%20Total%20-%20Years%20of%20Service.png" width = "600" height = "600"> 
+
+The % of Total graph further indicates that for 0-10 years of employment there are more resignations split between dissatified and not, however, the greater the years of employment, the number of resignations decrease but those who do resign felt some sort of dissatisfaction with the company.
+
+### Conclusion
+There are several key insights based on this analysis
+- Among employees who resigned most likely felt some dissatisfaction with `Work Life Balance`, `Job Dissatisfaction`, `Lack of Recognition`, `Department Dissatisfaction`, or `Workload Dissatisfaction`.
+- Teachers and teacher aides are responsible for over 60% of the resignations
+- The fewer the years of employment, the more resignations with a decrease in resignations as the years increase
+
+Based on these takeaways, I would suggest a couple of changes moving forward. First, dig deeper into the areas that had higher percentages of dissatisfaction from former employees. For example, consider alleviating the work-life imbalance and workload stress that employees, specifically teachers may face. Furthermore, a lack of recognition could be fixed by being more attentive to employees, perhaps even employing some sort of Employee of the Month program to highlight employees that go above and beyond. Lastly, the trend of newer employees leaving more often, this may be due to a lack of company loyalty as people who have worked there fewer years do not feel a sense of committment towards the company. To combat this, consider company programs/events that create a sense of community among employees and transform the workplace into a more positive environment that employees are eager to work in. 
