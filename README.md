@@ -1,3 +1,7 @@
+### The following data is from the Department of Education, Training and Employment (DETE) in Australia and comprises of employee exit surveys.
+
+The data contains 51 columns and 822 rows that captures the background of the respondent and their opinion about the company prior to leaving. Our task will be to analyze the respondents that resigned from the company and better understand the trend behind their resignation from the company and whether there was any dissatisfaction with the company.
+
 ## Data Cleaning
 In order to ensure that the data is fit for analysis, we need to remove any extra columns, rename the columns for easier handling, and ensure that all values in a column are standardized.
 
@@ -53,6 +57,16 @@ when interpersonalConflicts = 'True' or jobDissatisfaction = 'TRUE' or departmen
 when noneOfTheAbove = 'TRUE' then null 
 else FALSE
 ```
+#### Now the dataset comprises of 8 columns:
+- `separationType` - overall reason for departure 
+- `ceaseDate` - year of departure
+- `startDate` - year the respondent's employment began
+- `years` - total years worked
+- `position` - job role
+- `dissatisfaction ` - whether the respondent was dissatisfied with the company
+- `gender `
+- `age` 
+  
 ### With these changes, our dataset is much more relevant and easier to manipulate for the analysis.
 
 ## Analysis
@@ -66,7 +80,7 @@ ORDER BY num_of_responses DESC;
 ```
 ![](https://github.com/tanikasuresh/DETE-Employee-Exit-Survey-Analysis/blob/main/SQL%20Images/2.png)
 
-Here, we see that resignations did seem to be the leading reason for exiting the company between 2012 and 2014 closely followed by age retirement. It is definitely worth analyzing the trends corresponding to Resignations to understand the problem and prevent the company from losing talent.
+Here, we see that resignations did seem to be the leading reason for exiting the company between 2012 and 2014 closely followed by age retirement. It is definitely worth analyzing the trends corresponding to Resignations to understand the problem and prevent the company from losing talent in the future.
 
 ### Number of Resignations that were Dissatisfied
 
@@ -78,7 +92,7 @@ order by numOfResponses desc
 ```
 ![](https://github.com/tanikasuresh/DETE-Employee-Exit-Survey-Analysis/blob/main/SQL%20Images/3.png)
 
-Among the respondents who resigned from the company between 2012 and 2014, it seems that slightly more resigned due to some sort of dissatisfaction with the company.
+Among the respondents who resigned from the company between 2012 and 2014, it seems that slightly more did indeed resign due to some sort of dissatisfaction with the company.
 
 ### Number of responses indicating dissatisfaction based on Age
 ```sql
